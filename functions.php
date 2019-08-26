@@ -269,6 +269,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 		require get_template_directory() . '/vc-elements/image-border-content.php';
 		require get_template_directory() . '/vc-elements/image-border-content-left.php';
 		require get_template_directory() . '/vc-elements/contact-section.php';
+		require get_template_directory() . '/vc-elements/content-with-bg.php';
 		//require get_template_directory() . '/vc-elements/contact-section-blog.php';
 		//require get_template_directory() . '/vc-elements/contact-for-treatment.php';
 		require get_template_directory() . '/vc-elements/testimonials-list.php';
@@ -278,6 +279,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 		//require get_template_directory() . '/vc-elements/our-clinics.php';
 		require get_template_directory() . '/vc-elements/treatments-faq.php';
 		require get_template_directory() . '/vc-elements/treatment-results.php';
+		require get_template_directory() . '/vc-elements/results-tab.php';
 		//require get_template_directory() . '/vc-elements/treatments-indications.php';
 		require get_template_directory() . '/vc-elements/category-links-grid.php';
 		new VisualComposerStarter_Fonts();
@@ -369,6 +371,9 @@ function visualcomposerstarter_style() {
 	wp_register_style( 'visualcomposerstarter-font', get_template_directory_uri() . '/css/visual-composer-starter-font.min.css', array(), VISUALCOMPOSERSTARTER_VERSION );
 
 	/* Slick slider stylesheet */
+	wp_register_style( 'twentytwenty', get_template_directory_uri() . '/css/twentytwenty.css', array(), '1.6.0' );
+
+	/* Slick slider stylesheet */
 	wp_register_style( 'slick-style', get_template_directory_uri() . '/css/slick.min.css', array(), '1.6.0' );
 
 	/* General theme stylesheet */
@@ -406,6 +411,7 @@ function visualcomposerstarter_style() {
 
 	/* Enqueue styles */
 	wp_enqueue_style( 'bootstrap' );
+	wp_enqueue_style( 'twentytwenty' );
 	wp_enqueue_style( 'slick-style' );
 	wp_enqueue_style( 'visualcomposerstarter-style' );
 	wp_enqueue_style( 'dhi-style' );
@@ -432,6 +438,10 @@ function visualcomposerstarter_script() {
 	wp_register_script( 'bootstrap-collapser', get_template_directory_uri() . '/js/bootstrap/collapse.min.js', array( 'jquery' ), '3.3.7', true );
 
 	/* Slick Slider JS */
+	wp_register_script( 'event-js', get_template_directory_uri() . '/js/lib/jquery.event.move.js', array( 'jquery' ), '1.6.0', true );
+	wp_register_script( 'twentytwenty-js', get_template_directory_uri() . '/js/lib/jquery.twentytwenty.js', array( 'jquery' ), '1.6.0', true );
+
+	/* Slick Slider JS */
 	wp_register_script( 'slick-js', get_template_directory_uri() . '/js/slick/slick.min.js', array( 'jquery' ), '1.6.0', true );
 
 	/* Parallax JS */
@@ -454,7 +464,9 @@ function visualcomposerstarter_script() {
 	wp_enqueue_script( 'bootstrap-transition' );
 	wp_enqueue_script( 'bootstrap-collapser' );
 	wp_enqueue_script( 'skrollr-js' );
+	wp_enqueue_script( 'event-js' );
 	wp_enqueue_script( 'slick-js' );
+	wp_enqueue_script( 'twentytwenty-js' );
 	wp_enqueue_script( 'visualcomposerstarter-script' );
 }
 add_action( 'wp_enqueue_scripts', 'visualcomposerstarter_script' );

@@ -93,6 +93,55 @@ class treatmentResults {
                 ),
 
                 array(
+                    'type' => 'textarea_html',
+                    'holder' => 'div',
+                    'class' => 'wpc-text-class',
+                    'heading' => __( 'Description', 'vc_extend' ),
+                    'param_name' => 'content',
+                    'value' => __( '', 'vc_extend' ),
+                    'description' => __( 'Enter this option other than treatment pages', 'vc_extend' ),
+                    // 'admin_label' => false,
+                    // 'weight' => 0,
+                    'group' => 'Listing',
+                ),
+                
+                array(
+                    'type'        => 'textfield',
+                    'holder' => 'a',
+                    'heading' => __( 'View Treatment Link', 'vc_extend' ),
+                    'param_name'  => 'treatment_link',
+                    'admin_label' => false,
+                    /*'value'       => array(
+                        'men' => 'men',
+                        'women' => 'women',
+                        'beard' => 'beard',
+                        'eyebrow' => 'eyebrow'
+                    ),
+                    //'std'           => 'men', // Your default value*/
+                    'description' => __( 'Enter this option other than treatment pages', 'vc_extend' ),
+                    'weight'        => 0,
+                    'group'         => 'Listing'
+                ),
+                
+                array(
+                    'type'        => 'textfield',
+                    'holder' => 'div',
+                    'heading' => __( 'Additional Class', 'vc_extend' ),
+                    'param_name'  => 'additional_class',
+                    'admin_label' => false,
+                    /*'value'       => array(
+                        'men' => 'men',
+                        'women' => 'women',
+                        'beard' => 'beard',
+                        'eyebrow' => 'eyebrow'
+                    ),
+                    //'std'           => 'men', // Your default value*/
+                    'description' => __( 'Enter this option other than treatment pages', 'vc_extend' ),
+                    'weight'        => 0,
+                    'group'         => 'Listing'
+                ),
+
+                array(
                     'type'        => 'setting_block_id',
                     'param_name'  => 'setting_block_id',
                     'block_id'    => 174,
@@ -114,6 +163,8 @@ class treatmentResults {
                 array(
                     'title' => '',
                     'resulttype' => '',
+                    'treatment_link' => '',
+                    'additional_class' => '',
                     'disclaimer' => "Disclaimer: Lutétia's non-invasive, tailor-made aesthetic treatments and cutting-edge innovation redefine beauty by keeping it 'au naturel."
                 ),
                 $atts
@@ -127,14 +178,20 @@ class treatmentResults {
 
         // Fill $html var with data
         $html = '
-        <section class="treatment__results">
+        <section class="treatment__results '.$additional_class.'">
+
+        <div class="results__wrapper container">
 
             <div class="section-title">
-                <h3 class="text-center">'. $title .'</h3>
-                <h3 class="text-center">'. $fieldStr .'</h3>
+                <h3 class="text-center">'. $title .'</h3>';
+
+                if($content != '') {
+                    $html .= '<div class="description">'. $content .'</div>';
+                }
+
+        $html .= '
             </div>
 
-            <div class="results__wrapper container container--mid">
             <div class="results__slider">';
 
             foreach($this->results as $result) {
@@ -145,8 +202,13 @@ class treatmentResults {
 
         $html .= '
             </div>
-            <div class="disclaimer-text text-center">'. $disclaimer .'</div>
-            </div>
+            <div class="disclaimer-text text-center">'. $disclaimer .'</div>';
+
+            if($treatment_link != '') {
+                $html .= '<div class="text-center btn-block"><a href="'. $treatment_link .'" class="btn--lutetia">VIEW TREATMENT</a></div>';
+            }
+        
+        $html .= '    </div>
 
         </section>';
 

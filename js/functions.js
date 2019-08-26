@@ -86,6 +86,15 @@
         });
 
 
+        $('.tab__link').click(function(){
+            var _type = $(this).data('type');
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
+            $('.tab__' + _type).siblings().removeClass('active');
+            $('.tab__' + _type).addClass('active');
+        });
+
+
         if($('.clinic__list').length > 0) {
             $('.clinic__gallery figure:first-child').addClass('active');
             $('.clinic__list').slick({
@@ -115,6 +124,21 @@
                 arrows: false,
                 speed: 300,
                 slidesToShow: 1
+            });
+        }
+
+        if($('.before-after-wrapper').length > 0) {
+            $(".before-after-wrapper").twentytwenty();
+        }
+
+        if($('.results__slider').length > 0) {
+            $('.results__slider').slick({
+                dots: false,
+                infinite: false,
+                arrows: true,
+                speed: 300,
+                slidesToShow: 1,
+                draggable: false
             });
         }
 
