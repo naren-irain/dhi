@@ -83,7 +83,8 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 		 */
 		register_nav_menus( array(
 			'primary'       => esc_html__( 'Primary Menu', 'visual-composer-starter' ),
-			'secondary'     => esc_html__( 'Footer Menu', 'visual-composer-starter' ),
+			'treatments'     => esc_html__( 'Footer Menu Treatments', 'visual-composer-starter' ),
+			'useful'     => esc_html__( 'Footer Menu Useful', 'visual-composer-starter' ),
 		) );
 
 		/*

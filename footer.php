@@ -24,25 +24,26 @@ if ( visualcomposerstarter_is_the_footer_displayed() ) : ?>
 			<div class="col__dubai"> 
 				<h5>Treatment Areas</h5>
 				<nav>
-					<ul>
-						<li><a href="">Baldness in Men</a></li>
-						<li><a href="">Hair Loss in Women</a></li>
-						<li><a href="">Beard Transplant</a></li>
-						<li><a href="">Eyebrow Implant</a></li>
-					</ul>
+					<?php
+					wp_nav_menu( array(
+						'theme_location' => 'treatments',
+						'menu_class'     => 'nav navbar-nav',
+						'container'      => '',
+					) );
+					?>
 				</nav>
 			</div>
 
 			<div class="col__dubai"> 
 				<h5>Useful Links</h5>
 				<nav>
-					<ul>
-						<li><a href="">About DHI</a></li>
-						<li><a href="">Results</a></li>
-						<li><a href="">Testimonials</a></li>
-						<li><a href="">Contact</a></li>
-						<li><a href="">Maison Lutetia</a></li>
-					</ul>
+					<?php
+					wp_nav_menu( array(
+						'theme_location' => 'useful',
+						'menu_class'     => 'nav navbar-nav',
+						'container'      => '',
+					) );
+					?>
 				</nav>
 			</div>
 

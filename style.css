@@ -10,18 +10,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: featured-images, full-width-template, blog
 Text Domain: visual-composer-starter
 */
-/*
-Theme Name: Visual Composer Starter
-Theme URI: https://visualcomposer.com/visual-composer-starter-theme/
-Author: The Visual Composer Team
-Author URI: https://visualcomposer.com/
-Description: Visual Composer Starter theme designed to be a perfect companion for a simple and good looking website.
-Version: 3.0.3
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: featured-images, full-width-template, blog
-Text Domain: visual-composer-starter
-*/
 
 :root {
   --themeColor: #D4BAAA;
@@ -167,28 +155,26 @@ mark {
 
 /* Common Button */
 .btn--lutetia {
-  min-width: 120px;
-  height: 40px;
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15);
-  background-color: #000000;
-  color: #ffffff;
-  font-size: 1.2rem;
-  line-height: 38px;
-  outline: 0 none;
+  box-shadow: 13px 15px 20px rgba(0, 0, 0, 0.19);
+  background-color: #0d0d0d;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+  outline: 0;
   border: 1px solid #000;
   cursor: pointer;
+  display: inline-block;
+  padding: .3em 1em .2em;
   transition: .4s;
-  letter-spacing: 0.1em;
-  text-indent: 0.1em;
 }
 .btn--lutetia:hover,
 .btn--lutetia:focus {
   background: #D4BAAA;
-  color: #000;
+  border-color: #9e7c27;
+  color: #0d0d00;
   text-decoration: none;
   transform: translateY(-2px);
-  box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.25);
-  border-color: #9e7c27;
 }
 .btn--lutetia:active {
   transform: translateY(0);
@@ -394,9 +380,10 @@ ul#menu-main-menu li:hover ul.sub-menu {
 
 /* parallax */
 .parallax--elem {
-  background-image: url(./images/bg-parallax.jpg);
-  background-size: 100% auto;
-  background-repeat: no-repeat;
+  background-image: url(./images/bg-parallax.gif);
+  background-size: 92% auto;
+  background-repeat: repeat-y;
+  background-position: 50% 10%;
   position: absolute;
   width: 100%;
   height: 134%;
@@ -547,23 +534,24 @@ img.box--filled {
 .section__welcome .wpb_content_element p {
   color: #999999;
 }
+.section__welcome .vc_col-sm-6:first-child, .section__welcome .col-sm-6:first-child {
+  padding-right: 4rem;
+}
 .section__welcome .wpb_content_element h3 {
   position: relative;
 }
 .section__welcome .wpb_content_element h3 small {
   display: block;
   margin-top: 1.5em;
+  font-size: 1.22rem;
 }
 .section__welcome .wpb_content_element h3:after {
   content: '';
-  background: #7ec4c2;
+  background: #D4BAAA;
   display: table;
   width: 2rem;
   height: 2px;
   margin: 1.25rem 0;
-}
-.section__welcome .vc_col-sm-12 .wpb_content_element h3:after {
-  display: none;
 }
 .section__welcome .wpb_content_element h2 {
   color: #D4BAAA;
@@ -1346,8 +1334,6 @@ ul.slick-dots .slick-active button {
   width: 22%;
   position: relative;
   left: -3rem;
-  align-self: flex-start;
-  top: 3rem;
   z-index: 2;
 }
 .faq-flex > .faq-block > div {
@@ -1366,8 +1352,8 @@ ul.slick-dots .slick-active button {
   border-bottom: 1px solid #D4BAAA;
   cursor: pointer;
   margin-bottom: 0.5rem;
-  position: relative;
   padding-right: 30px;
+  position: relative;
   transition: .4s;
 }
 .faq-item h5:hover {
@@ -1671,13 +1657,14 @@ a.box--filled,
 }
 
 
+
 /* DHI */
 .col__lutetia a {
   border: 1px solid;
   display: inline-block;
-  padding: 0.3rem .5rem 0.1rem;
+  padding: 4px 7px 3px 8px;
   position: relative;
-  top: -.5rem;
+  top: -0.3rem;
   opacity: 1;
 }
 .logo__main {
@@ -2010,12 +1997,17 @@ section.vc_section.container {
 .section__welcome .wpb_content_element h2 {
   color: #000000;
 }
+.footer--main a {
+  transition: .4s;
+}
+.footer--main a:hover {
+  color: #D4BAAA;
+  text-decoration: underline;
+}
+
 
 
 @media only screen and (max-width: 1300px) {
-  div#main-menu {
-    margin-left: 1.5rem;
-  }
   ul#menu-main-menu > li {
     padding: 0 0.6em;
   }
@@ -2254,15 +2246,27 @@ section.vc_section.container {
     font-size: 2rem;
   }
   .col__contact a {
-    font-size: 0;
     padding: 0;
-    display: inline-block;
-    margin-right: 0.5rem;
   }
+  .link__mail {
+    display: none;
+  }
+  .col__lang {
+    margin-right: -1.25rem;
+  }
+  .col.col__contact {
+    margin-left: -.5rem;
+  }
+  .header__menu .container {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  } 
   .col__contact a:before {
-    width: 1.2rem;
-    height: 1.1rem;
+    width: 0.9rem;
+    height: 0.9rem;
     position: relative;
+    top: .1rem;
+    margin-right: .4rem;
   }
   .logo__main {
     width: 3rem;
@@ -2459,6 +2463,7 @@ section.vc_section.container {
 
 
 
+/* DHI Responsive */
 @media only screen and (max-width: 991px) {
   .section__content-boxed .border-box h4 {
     font-size: 2.2rem;
@@ -2467,6 +2472,9 @@ section.vc_section.container {
 @media only screen and (max-width: 767px) {
   .logo__main {
     width: 8rem;
+  }
+  .col__lutetia {
+    margin-right: -.5rem;
   }
   .section__content-boxed .border-box h4 {
     font-size: 1.5rem;
