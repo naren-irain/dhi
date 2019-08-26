@@ -24,53 +24,42 @@ while ( have_posts() ) :
 					<div class="related__list">
 						<div class="row">
 
-							<div class="col-sm-6 col-md-4">
-								<div class="related__treatment">
-									<figure>
-										<img src="<?php echo get_template_directory_uri(); ?>/images/upload/related-1.jpg" alt="" />
-										<div class="overlay box--filled">
-											<h4>Soft Lift</h4>
-											<p>Acne scars are the result of inflamed blemishes caused by skin pores clogged with excess oil, dead skin cells, and bacteria.</p>
-										</div>
-										<a href="" class="box--filled"></a>
-									</figure>
-									<div class="content">
-										<h4><a href="">Soft Lift</a></h4>
-									</div>
-								</div>
-							</div>
+							<?php
+								$args = array(
+									'post_type' => 'treatments',
+									'post__not_in'   => array( get_the_ID() ),
+									'posts_per_page' => 3,
+									'orderby' => 'rand'
+								);
+
+								$query1 = new WP_Query( $args );
+
+								if($query1->have_posts()): while($query1->have_posts()): $query1->the_post();
+							?>
+							
 
 							<div class="col-sm-6 col-md-4">
 								<div class="related__treatment">
 									<figure>
-										<img src="<?php echo get_template_directory_uri(); ?>/images/upload/related-2.jpg" alt="" />
+										<?php if(has_post_thumbnail()) { ?>
+											<img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php echo get_the_title(); ?>" class="box--filled" />
+										<?php } else { ?>
+											<img src="<?php echo get_template_directory_uri(); ?>/images/upload/img-salon-5.jpg" alt="<?php echo get_the_title(); ?>" class="box--filled" />
+										<?php } ?>
 										<div class="overlay box--filled">
-											<h4>Acne Scars</h4>
-											<p>Acne scars are the result of inflamed blemishes caused by skin pores clogged with excess oil, dead skin cells, and bacteria.</p>
+											<h4><?php echo get_the_title(); ?></h4>
+											<p><?php excerpt(12); ?></p>
 										</div>
-										<a href="" class="box--filled"></a>
+										<?php echo '<a href="'.get_the_permalink().'" class="box--filled">Go</a>'; ?>
 									</figure>
 									<div class="content">
-										<h4><a href="">Acne Scars</a></h4>
+										<h4><?php echo '<a href="'.get_the_permalink().'">'. get_the_title() .'</a>'; ?></h4>
 									</div>
 								</div>
 							</div>
 
-							<div class="col-sm-6 col-md-4">
-								<div class="related__treatment">
-									<figure>
-										<img src="<?php echo get_template_directory_uri(); ?>/images/upload/related-3.jpg" alt="" />
-										<div class="overlay box--filled">
-											<h4>Meso LED</h4>
-											<p>Acne scars are the result of inflamed blemishes caused by skin pores clogged with excess oil, dead skin cells, and bacteria.</p>
-										</div>
-										<a href="" class="box--filled"></a>
-									</figure>
-									<div class="content">
-										<h4><a href="">Meso LED</a></h4>
-									</div>
-								</div>
-							</div>
+
+							<?php endwhile; endif; wp_reset_postdata(); ?>
 
 						</div>
 					</div>

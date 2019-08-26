@@ -1,17 +1,12 @@
 <?php
 /*
-    Element: Contact Section
+    Element: Popular Treatments List
 */
 
 // don't load directly
 if (!defined('ABSPATH')) die('-1');
 
-class contactSection {
-
-    public $block_settings_id = 41;
-    public $description =  "";
-    public $shortcode = "";
-    public $bgImg = "";
+class popularTreatmentsList {
 
 
     function __construct() {
@@ -19,12 +14,8 @@ class contactSection {
         add_action( 'init', array( $this, 'integrateWithVC' ) );
 
         // Use this when creating a shortcode addon
-        add_shortcode( 'contact_section', array( $this, 'renderHTML' ) );
+        add_shortcode( 'popular_reatments_list', array( $this, 'renderHTML' ) );
 
-        
-        $this->description  = get_field("left_column_content", $this->block_settings_id);
-        $this->shortcode    = get_field("contact_form_shortcode", $this->block_settings_id);
-        $this->bgImg        = get_field("bg_image", $this->block_settings_id);
 
     }
 
@@ -43,10 +34,10 @@ class contactSection {
         More info: http://kb.wpbakery.com/index.php?title=Vc_map
         */
         vc_map( array(
-            "name" => __("Contact Section", 'vc_extend'),
-            "description" => __("Contact form with bg image", 'vc_extend'),
+            "name" => __("Popular Treatments List", 'vc_extend'),
+            "description" => __("Popular treatments like in home page", 'vc_extend'),
             //"group" => "Custom Elements",
-            "base" => "contact_section",
+            "base" => "popular_reatments_list",
             "class" => "",
             "controls" => "full",
             "icon" => get_template_directory_uri().'/images/admin/icon-code.png', // or css class name which you can reffer in your css file later. Example: "vc_extend_my_class"
@@ -56,10 +47,15 @@ class contactSection {
             "params" => array(
 
                 array(
-                    'type'        => 'setting_block_id',
-                    'param_name'  => 'setting_block_id',
-                    'block_id'    => 41,
-                    'group'       => 'Listing',
+                    'type' => 'textfield',
+                    'holder' => 'h1',
+                    'class' => 'title-class',
+                    'heading' => __( 'Title', 'vc_extend' ),
+                    'param_name' => 'title',
+                    'value' => __( '', 'vc_extend' ),
+                    'admin_label' => false,
+                    'weight' => 0,
+                    'group' => 'Listing',
                 )
 
             )
@@ -82,17 +78,37 @@ class contactSection {
         );
 
         // Fill $html var with data
-        $html = '
-        <section class="section__welcome contact__withbg" style="background-image: url('. $this->bgImg .');">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="wpc-directory-text wpb_content_element">'. $this->description .'</div>
+        $html = '<div class="recent-blogs">
+
+        <div class="section-title">
+            <h3 class="text-center">'. $title .'</h3>
+        </div>
+
+        <div class="d-flex list__blogs list__five justify-content-center">';
+
+        
+			$loop = new WP_Query( array(
+				'post_type' => 'treatments',
+				'posts_per_page' => 5,
+				'orderby'		=> 'ID',
+				'order'			=> 'DESC',
+				'cat'	=> 16,
+			));
+            if($loop->have_posts()): while($loop->have_posts()): $loop->the_post();
+
+            $postimg = ( has_post_thumbnail() ) ? get_the_post_thumbnail_url() : get_template_directory_uri().'/images/upload/img-salon-5.jpg';
+
+            $html .= '<div class="col"><div class="box__blog popular"><figure class="post__img">';
+            $html .= '<img src="'. $postimg .'" /><a href="'.get_the_permalink().'" class="box--filled"></a></figure>';
+            $html .= '<div class="content">
+                        <h4 class="text-center"><a href="'.get_the_permalink().'">'. get_the_title() .'</a></h4>
+                    </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="wpc-directory-text wpb_content_element">'. do_shortcode ( $this->shortcode ) .'</div>
-                </div>
-            </div>
-        </section>';
+            </div>';
+
+            endwhile; endif; wp_reset_postdata();
+        
+        $html .= '</div></div>';
 
         return $html;
     }
@@ -109,4 +125,4 @@ class contactSection {
     }
 }
 // Finally initialize code
-new contactSection();
+new popularTreatmentsList();

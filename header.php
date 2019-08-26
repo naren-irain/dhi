@@ -34,9 +34,9 @@
 						<a href="tel:+97147064000" class="link__tel">+97147064000</a>
 						<a href="mailto:hello@dhi.com" class="link__mail">hello@dhi.com</a>
 					</div>
-					<div class="col col__lang text-right">
+					<div class="col col__lang col__lutetia text-right">
 						<ul>
-							<li><a href="#" target="_blank">Maison Lutétia</a></li>
+							<li><a href="http://maisonlutetia.mkpactive.com/" target="_blank">Maison Lutétia</a></li>
 						</ul>
 					</div>
 				</div>

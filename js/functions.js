@@ -99,6 +99,15 @@
             });
         }
 
+        if($('.accordion__container ').length > 0) {
+            $('.accordion__container .accordion__row:first-child').addClass('active');
+            $('.accordion__row h3').click(function(){
+                var _elem = $(this).parents('.accordion__row');
+                _elem.siblings().removeClass('active');
+                _elem.addClass('active');
+            });
+        }
+
         if($('.reviews__slider').length > 0) {
             $('.reviews__slider').slick({
                 dots: true,

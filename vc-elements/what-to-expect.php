@@ -1,15 +1,15 @@
 <?php
 /*
-    Element: Treatment Reviews
+    Element: What to Expect
 */
 
 // don't load directly
 if (!defined('ABSPATH')) die('-1');
 
-class treatmentReviews {
+class whatToExpect {
 
-    public $block_settings_id = 647;
-    public $reviews = array();
+    public $block_settings_id = 137;
+    public $expect = array();
     public $bgImg = '';
 
 
@@ -18,10 +18,10 @@ class treatmentReviews {
         add_action( 'init', array( $this, 'integrateWithVC' ) );
 
         // Use this when creating a shortcode addon
-        add_shortcode( 'treatment_reviews', array( $this, 'renderHTML' ) );
+        add_shortcode( 'what_to_expect', array( $this, 'renderHTML' ) );
 
-        $this->reviews = get_field("reviews", $this->block_settings_id);
         $this->bgImg = get_field("bg_image", $this->block_settings_id);
+        $this->expect = get_field("expect_list", $this->block_settings_id);
     }
 
     public function integrateWithVC() {
@@ -39,10 +39,10 @@ class treatmentReviews {
         More info: http://kb.wpbakery.com/index.php?title=Vc_map
         */
         vc_map( array(
-            "name" => __("Treatment Reviews", 'vc_extend'),
-            "description" => __("Treatment Reviews", 'vc_extend'),
+            "name" => __("What to Expect accordion", 'vc_extend'),
+            "description" => __("What to Expect", 'vc_extend'),
             //"group" => "Custom Elements",
-            "base" => "treatment_reviews",
+            "base" => "what_to_expect",
             "class" => "",
             "controls" => "full",
             "icon" => get_template_directory_uri().'/images/admin/icon-code.png', // or css class name which you can reffer in your css file later. Example: "vc_extend_my_class"
@@ -54,7 +54,7 @@ class treatmentReviews {
                 array(
                     'type'        => 'setting_block_id',
                     'param_name'  => 'setting_block_id',
-                    'block_id'    => 647,
+                    'block_id'    => 137,
                     'group'       => 'Listing',
                 )
 
@@ -79,19 +79,23 @@ class treatmentReviews {
 
         // Fill $html var with data
         $html = '
-        <section class="section__welcome contact__withbg treatment__reviews" style="background-image: url('.$this->bgImg.');">
+        <section class="section__accordion">
 
-            <div class="reviews__slider">';
+            <figure class="accordion__banner">
+                <img src="'.$this->bgImg.'" />
+            </figure>
 
-            foreach($this->reviews as $review) {
-                $html .= '<div class="slick-slide">';
-                $html .= "<div class='box__content'><h3>".$review['title']."</h3>";
-                $html .= "<div class='description'>".$review['description']."</div>";
+            <div class="accordion__container container container--mid"><div class="box">';
+
+            foreach($this->expect as $expect) {
+                $html .= '<div class="accordion__row">';
+                $html .= "<div class='d-flex'><div class='col col__title'><h3>".$expect['title']."</h3></div>";
+                $html .= "<div class='col col__content'><div class='description'>".$expect['content']."</div></div>";
                 $html .= "</div></div>";
             }
 
         $html .= '
-            </div>
+            </div></div>
 
         </section>';
 
@@ -110,4 +114,4 @@ class treatmentReviews {
     }
 }
 // Finally initialize code
-new treatmentReviews();
+new whatToExpect();

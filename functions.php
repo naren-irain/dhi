@@ -269,13 +269,16 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 		require get_template_directory() . '/vc-elements/image-border-content.php';
 		require get_template_directory() . '/vc-elements/image-border-content-left.php';
 		require get_template_directory() . '/vc-elements/contact-section.php';
-		require get_template_directory() . '/vc-elements/contact-section-blog.php';
-		require get_template_directory() . '/vc-elements/contact-for-treatment.php';
-		require get_template_directory() . '/vc-elements/our-team.php';
-		require get_template_directory() . '/vc-elements/our-clinics.php';
+		//require get_template_directory() . '/vc-elements/contact-section-blog.php';
+		//require get_template_directory() . '/vc-elements/contact-for-treatment.php';
+		require get_template_directory() . '/vc-elements/testimonials-list.php';
+		require get_template_directory() . '/vc-elements/testimonial-in-treatments.php';
+		require get_template_directory() . '/vc-elements/what-to-expect.php';
+		//require get_template_directory() . '/vc-elements/our-team.php';
+		//require get_template_directory() . '/vc-elements/our-clinics.php';
 		require get_template_directory() . '/vc-elements/treatments-faq.php';
-		require get_template_directory() . '/vc-elements/treatment-reviews.php';
-		require get_template_directory() . '/vc-elements/treatments-indications.php';
+		require get_template_directory() . '/vc-elements/treatment-results.php';
+		//require get_template_directory() . '/vc-elements/treatments-indications.php';
 		require get_template_directory() . '/vc-elements/category-links-grid.php';
 		new VisualComposerStarter_Fonts();
 		new VisualComposerStarter_Customizer();
@@ -380,6 +383,10 @@ function visualcomposerstarter_style() {
 	/* Theme stylesheet */
 	wp_register_style( 'visualcomposerstarter-style', get_stylesheet_uri() );
 
+	/* DHI stylesheet */
+	wp_register_style( 'dhi-style', get_template_directory_uri() . '/css/dhi.css', array(), '1.6.0' );
+	
+
 	/* Font options */
 	$fonts = array(
 		get_theme_mod( 'vct_fonts_and_style_body_font_family', 'Roboto' ),
@@ -401,6 +408,8 @@ function visualcomposerstarter_style() {
 	wp_enqueue_style( 'bootstrap' );
 	wp_enqueue_style( 'slick-style' );
 	wp_enqueue_style( 'visualcomposerstarter-style' );
+	wp_enqueue_style( 'dhi-style' );
+	wp_enqueue_style( 'dhi-style-ananth' );
 	/*wp_enqueue_style( 'visualcomposerstarter-font' );
 	wp_enqueue_style( 'visualcomposerstarter-general' );
 	wp_enqueue_style( 'visualcomposerstarter-woocommerce' );
@@ -1123,3 +1132,45 @@ function setting_block_field_param( $settings, $value ) {
  	return '<div style="font-size:16px;"><span style=" display:block;">The block occurs on multiple pages, so we moved its settings to <pre>Theme Settings/'.get_the_title(esc_attr( $settings['block_id']  )).'</pre></span><span style=" display:block;">In order to edit the block, click <a style="font-weight:700;" href="'. get_edit_post_link(esc_attr( $settings['block_id']  )) .'" alt="edit page link" target="_blank">here</a></span></div>'; // This is html markup that will be outputted in content elements edit form
 }
 vc_add_shortcode_param( 'setting_block_id', 'setting_block_field_param' );
+
+
+/* Add length options in excerpt */
+function excerpt($limit) {
+  $excerpt = explode(' ', get_the_excerpt(), $limit);
+  if (count($excerpt)>=$limit) {
+    array_pop($excerpt);
+    $excerpt = implode(" ",$excerpt).'...';
+  } else {
+    $excerpt = implode(" ",$excerpt);
+  }	
+  $excerpt = preg_replace('`[[^]]*]`','',$excerpt);
+  return $excerpt;
+}
+ 
+/* Add length options in content */
+function content($limit) {
+  $content = explode(' ', get_the_content(), $limit);
+  if (count($content)>=$limit) {
+    array_pop($content);
+    $content = implode(" ",$content).'...';
+  } else {
+    $content = implode(" ",$content);
+  }	
+  $content = preg_replace('/[.+]/','', $content);
+  $content = apply_filters('the_content', $content); 
+  $content = str_replace(']]>', ']]>', $content);
+  return $content;
+}
+
+/* Website Url Short Code  */
+function wp_site_url() {
+	return get_site_url();
+}
+add_shortcode('wp_site_url', 'wp_site_url');
+
+
+/* Template Url Short Code  */
+function wp_template_url() {
+	return get_template_directory_uri();
+}
+add_shortcode('wp_template_url', 'wp_template_url');

@@ -43,6 +43,19 @@ class categoryLinksGrid {
             //'admin_enqueue_css' => array(plugins_url('assets/vc_extend_admin.css', __FILE__)), // This will load css file in the VC backend editor
             "params" => array(
 
+
+                array(
+                    'type' => 'textfield',
+                    'holder' => 'h1',
+                    'class' => 'title-class',
+                    'heading' => __( 'Main Title', 'vc_extend' ),
+                    'param_name' => 'title',
+                    'value' => __( '', 'vc_extend' ),
+                    'admin_label' => false,
+                    'weight' => 0,
+                    'group' => 'Listing',
+                ),
+
                 array(
                     'type' => 'attach_image',
                     'holder' => 'img',
@@ -187,6 +200,54 @@ class categoryLinksGrid {
                     'group' => 'Listing',
                 ),
 
+                array(
+                    'type' => 'attach_image',
+                    'holder' => 'img',
+                    //'class' => 'text-class',
+                    'heading' => __( 'Category 4 Image', 'vc_extend' ),
+                    'param_name' => 'bgimg4',
+                    // 'value' => __( 'Default value', 'vc_extend' ),
+                    'admin_label' => false,
+                    'weight' => 0,
+                    'group' => 'Listing',
+                ),
+
+                array(
+                    'type' => 'textfield',
+                    'holder' => 'h1',
+                    'class' => 'title-class',
+                    'heading' => __( 'Category 4 Title', 'vc_extend' ),
+                    'param_name' => 'title4',
+                    'value' => __( '', 'vc_extend' ),
+                    'admin_label' => false,
+                    'weight' => 0,
+                    'group' => 'Listing',
+                ),
+
+                array(
+                    'type' => 'textfield',
+                    'holder' => 'div',
+                    'class' => 'title-class',
+                    'heading' => __( 'Category 4 content', 'vc_extend' ),
+                    'param_name' => 'content4',
+                    'value' => __( '', 'vc_extend' ),
+                    'admin_label' => false,
+                    'weight' => 0,
+                    'group' => 'Listing',
+                ),
+
+                array(
+                    'type' => 'textfield',
+                    'holder' => 'a',
+                    'class' => 'title-class',
+                    'heading' => __( 'Category 4 Link', 'vc_extend' ),
+                    'param_name' => 'link4',
+                    'value' => __( '', 'vc_extend' ),
+                    'admin_label' => false,
+                    'weight' => 0,
+                    'group' => 'Listing',
+                ),
+
             )
         ) );
     }
@@ -200,18 +261,23 @@ class categoryLinksGrid {
         extract(
             shortcode_atts(
                 array(
-                    'bgimg1' => 'bgimg1',
-                    'title1'   => 'title1',
-                    'content1'   => 'content1',
-                    'link1'   => 'link1',
-                    'bgimg2' => 'bgimg2',
-                    'title2'   => 'title2',
-                    'content2'   => 'content2',
-                    'link2'   => 'link2',
-                    'bgimg3' => 'bgimg3',
-                    'title3'   => 'title3',
-                    'content3'   => 'content3',
-                    'link3'   => 'link3',
+                    'title'   => '',
+                    'bgimg1' => '',
+                    'title1'   => '',
+                    'content1'   => '',
+                    'link1'   => '',
+                    'bgimg2' => '',
+                    'title2'   => '',
+                    'content2'   => '',
+                    'link2'   => '',
+                    'bgimg3' => '',
+                    'title3'   => '',
+                    'content3'   => '',
+                    'link3'   => '',
+                    'bgimg4' => '',
+                    'title4'   => '',
+                    'content4'   => '',
+                    'link4'   => '',
                 ),
                 $atts
             )
@@ -220,25 +286,34 @@ class categoryLinksGrid {
         $img_url1 = wp_get_attachment_image_src( $bgimg1, "full");
         $img_url2 = wp_get_attachment_image_src( $bgimg2, "full");
         $img_url3 = wp_get_attachment_image_src( $bgimg3, "full");
+        $img_url4 = wp_get_attachment_image_src( $bgimg4, "full");
 
         // Fill $html var with data
         $html = '
         <div class="category-links-grid">
+            <div class="section-title text-center">
+                <h3>' . $title . '</h3>
+            </div>
             <div class="d-flex">
                 <div class="category-grid-box">
-                    <figure><img src="'. $img_url1[0] .'" /></figure>
-                    <div class="overlay d-flex justify-content-center align-items-center box--filled"><div><h4>' . $title1 . '</h4><p>' . $content1 . '</p></div></div>
+                    <figure><img src="'. $img_url1[0] .'" class="box--filled" /></figure>
+                    <div class="overlay d-flex justify-content-center align-items-end box--filled"><div><h4>' . $title1 . '</h4><p>' . $content1 . '</p></div></div>
                     <a href="' . $link1 . '" class="box--filled">' . $title1 . '</a>
                 </div>
                 <div class="category-grid-box">
-                    <figure><img src="'. $img_url2[0] .'" /></figure>
-                    <div class="overlay d-flex justify-content-center align-items-center box--filled"><div><h4>' . $title2 . '</h4><p>' . $content2 . '</p></div></div>
+                    <figure><img src="'. $img_url2[0] .'" class="box--filled" /></figure>
+                    <div class="overlay d-flex justify-content-center align-items-end box--filled"><div><h4>' . $title2 . '</h4><p>' . $content2 . '</p></div></div>
                     <a href="' . $link2 . '" class="box--filled">' . $title2 . '</a>
                 </div>
                 <div class="category-grid-box">
-                    <figure><img src="'. $img_url3[0] .'" /></figure>
-                    <div class="overlay d-flex justify-content-center align-items-center box--filled"><div><h4>' . $title3 . '</h4><p>' . $content3 . '</p></div></div>
+                    <figure><img src="'. $img_url3[0] .'" class="box--filled" /></figure>
+                    <div class="overlay d-flex justify-content-center align-items-end box--filled"><div><h4>' . $title3 . '</h4><p>' . $content3 . '</p></div></div>
                     <a href="' . $link3 . '" class="box--filled">' . $title3 . '</a>
+                </div>
+                <div class="category-grid-box">
+                    <figure><img src="'. $img_url4[0] .'" class="box--filled" /></figure>
+                    <div class="overlay d-flex justify-content-center align-items-end box--filled"><div><h4>' . $title4 . '</h4><p>' . $content4 . '</p></div></div>
+                    <a href="' . $link4 . '" class="box--filled">' . $title4 . '</a>
                 </div>
             </div>
         </div>';

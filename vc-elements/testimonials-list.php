@@ -1,17 +1,12 @@
 <?php
 /*
-    Element: Contact Section
+    Element: Testimonials List
 */
 
 // don't load directly
 if (!defined('ABSPATH')) die('-1');
 
-class contactSection {
-
-    public $block_settings_id = 41;
-    public $description =  "";
-    public $shortcode = "";
-    public $bgImg = "";
+class testimonialsList {
 
 
     function __construct() {
@@ -19,12 +14,8 @@ class contactSection {
         add_action( 'init', array( $this, 'integrateWithVC' ) );
 
         // Use this when creating a shortcode addon
-        add_shortcode( 'contact_section', array( $this, 'renderHTML' ) );
+        add_shortcode( 'testimonials_list', array( $this, 'renderHTML' ) );
 
-        
-        $this->description  = get_field("left_column_content", $this->block_settings_id);
-        $this->shortcode    = get_field("contact_form_shortcode", $this->block_settings_id);
-        $this->bgImg        = get_field("bg_image", $this->block_settings_id);
 
     }
 
@@ -43,10 +34,10 @@ class contactSection {
         More info: http://kb.wpbakery.com/index.php?title=Vc_map
         */
         vc_map( array(
-            "name" => __("Contact Section", 'vc_extend'),
-            "description" => __("Contact form with bg image", 'vc_extend'),
+            "name" => __("Testimonials List", 'vc_extend'),
+            "description" => __("Testimonials List with two columns", 'vc_extend'),
             //"group" => "Custom Elements",
-            "base" => "contact_section",
+            "base" => "testimonials_list",
             "class" => "",
             "controls" => "full",
             "icon" => get_template_directory_uri().'/images/admin/icon-code.png', // or css class name which you can reffer in your css file later. Example: "vc_extend_my_class"
@@ -56,10 +47,15 @@ class contactSection {
             "params" => array(
 
                 array(
-                    'type'        => 'setting_block_id',
-                    'param_name'  => 'setting_block_id',
-                    'block_id'    => 41,
-                    'group'       => 'Listing',
+                    'type' => 'textfield',
+                    'holder' => 'h1',
+                    'class' => 'additional-class',
+                    'heading' => __( 'Additional Class', 'vc_extend' ),
+                    'param_name' => 'additional_class',
+                    'value' => __( '', 'vc_extend' ),
+                    'admin_label' => false,
+                    'weight' => 0,
+                    'group' => 'Listing',
                 )
 
             )
@@ -75,24 +71,36 @@ class contactSection {
         extract(
             shortcode_atts(
                 array(
-                    'title' => '',
+                    'additional_class' => '',
                 ),
                 $atts
             )
         );
 
         // Fill $html var with data
-        $html = '
-        <section class="section__welcome contact__withbg" style="background-image: url('. $this->bgImg .');">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="wpc-directory-text wpb_content_element">'. $this->description .'</div>
+        $html = '<div class="section__testimonial container container--secondary '. $additional_class .'">
+
+        <div class="row list__testimonial">';
+
+			$loop = new WP_Query( array(
+				'post_type' => 'testimonial',
+				'posts_per_page' => -1,
+				'orderby'		=> 'ID',
+				'order'			=> 'DESC',
+			));
+            if($loop->have_posts()): while($loop->have_posts()): $loop->the_post();
+
+            $html .= '<div class="col-sm-6"><div class="box__testimonial">';
+            $html .= '<div class="content">
+                        <div class="description">'. get_the_content() .'</div>
+                        <h4>'. get_the_title() .'<br/>'. get_field('job_title') .'</h4>
+                    </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="wpc-directory-text wpb_content_element">'. do_shortcode ( $this->shortcode ) .'</div>
-                </div>
-            </div>
-        </section>';
+            </div>';
+
+            endwhile; endif; wp_reset_postdata();
+        
+        $html .= '</div></div>';
 
         return $html;
     }
@@ -109,4 +117,4 @@ class contactSection {
     }
 }
 // Finally initialize code
-new contactSection();
+new testimonialsList();
