@@ -43,7 +43,28 @@
     }
 
     $(document).ready(function(){
-        var skrollrInst = skrollr.init();
+
+        var skrollrInst;
+        if(window.innerWidth > 767) {
+            skrollrInst = skrollr.init();
+        }
+
+        $('.navbar-toggler').click(function(e){
+            if( $("#main-menu").is(':visible') ) {
+                $('html').removeClass("menuOpened");
+            } else {
+                $('html').addClass("menuOpened");
+            }
+        });
+
+        $('.menu-item-has-children > a').click(function(e){
+            if(window.innerWidth <= 991) {
+                e.preventDefault();
+                $(this).toggleClass('active-submenu');
+                $(this).closest('.sub-menu').slideToggle();
+                return false;
+            }
+        });
 
         $('.grid-thumb').click(function(){
             var gridElem = $(this).parents('.seven-image-grid'), index = $(this).index() + 1;
@@ -127,6 +148,16 @@
             });
         }
 
+        if($('.related__list').length > 0 && window.innerWidth < 575) {
+            $('.related__list > .row').slick({
+                dots: false,
+                infinite: false,
+                arrows: false,
+                speed: 300,
+                slidesToShow: 1
+            });
+        }
+
         if($('.before-after-wrapper').length > 0) {
             $(".before-after-wrapper").twentytwenty();
         }
@@ -138,10 +169,33 @@
                 arrows: true,
                 speed: 300,
                 slidesToShow: 1,
+                draggable: false,
+                touchMove: false
+            });
+        }
+
+        if($('.dhicomparison__slider').length > 0) {
+            $('.dhicomparison__slider').slick({
+                dots: false,
+                infinite: false,
+                arrows: true,
+                speed: 300,
+                slidesToShow: 1,
                 draggable: false
             });
         }
 
+        if($('.dhiSteps__slider').length > 0) {
+            $('.dhiSteps__slider').slick({
+                dots: false,
+                infinite: false,
+                arrows: true,
+                speed: 300,
+                slidesToShow: 1,
+                draggable: false
+            });
+        }
+        
         if($('.faq-item').length > 0) {
             $('.faq-item h5').click(function(){
                 var faqs = $(this).parents('.faq-list');

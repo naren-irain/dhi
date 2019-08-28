@@ -276,6 +276,9 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 		require get_template_directory() . '/vc-elements/testimonials-list.php';
 		require get_template_directory() . '/vc-elements/testimonial-in-treatments.php';
 		require get_template_directory() . '/vc-elements/what-to-expect.php';
+		require get_template_directory() . '/vc-elements/dhi-comparison.php';
+		require get_template_directory() . '/vc-elements/dhi-difference.php';
+		require get_template_directory() . '/vc-elements/dhi-steps.php';
 		//require get_template_directory() . '/vc-elements/our-team.php';
 		//require get_template_directory() . '/vc-elements/our-clinics.php';
 		require get_template_directory() . '/vc-elements/treatments-faq.php';
