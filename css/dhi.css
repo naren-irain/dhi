@@ -7,4 +7,122 @@
   margin: 0 0.3rem;
 }
 
+.dhicomparison {
+  position: relative;
+}
+.box.box__dhi {
+  position: relative;
+}
+.dhicomparison .box__dhi:before {
+  content: 'VS';
+  background: #7ec4c2;
+  width: 3.4em;
+  height: 3.4em;
+  border-radius: 50%;
+  color: #000;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 2;
+  font-family: 'ACaslonPro';
+  padding-top: .2em;
+  font-size: 1.3rem;
+  right: -15px;
+  top: 50%;
+  margin: -1.7em -1.7em 0 0;
+}
+.dhicomparison__slider .slick-arrow.slick-disabled {
+  opacity: 0.15;
+  pointer-events: none;
+}
 
+.link__dhistpes i {
+  width: 1.3rem;
+  height: 1.3rem;
+  display: inline-block;
+  transform: rotate(180deg);
+}
+a.link__dhistpes {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+.link__dhistpes i:before {
+  transform: scale(0.75);
+}
+
+@media only screen and (max-width: 991px) {
+  .dhicomparison {
+    padding: 0;
+  }
+  .dhiDifference figure {
+    width: 80%;
+    height: 20rem;
+  }
+  .dhiDifference .box {
+    width: 85%;
+    min-height: 17rem;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .dhicomparison {
+    height: auto;
+    display: block !important;
+  }
+  .dhicomparison__slider .slick-arrow {
+    right: 1rem;
+    bottom: -4rem;
+  }
+  .dhicomparison__slider .slick-prev {
+    right: 3.5rem;
+  }
+  .dhicomparison .box__dhi:before {
+    right: 50%;
+    top: 100%;
+    font-size: 1.1rem;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .dhiSteps .d-flex {
+    display: block !important;
+  }
+  .dhiDifference__list {
+    margin: 2rem 0 1rem;
+  }
+  .dhi__differences {
+    margin-top: 2rem;
+  }
+  .dhi__steps figure img {
+    position: relative;
+  }
+  .dhicomparison h4 {
+    font-size: 1.5rem;
+  }
+  .dhicomparison .description p {
+      font-size: 14px;
+      padding: 0;
+  }
+  .dhicomparison .box {
+    padding: 3rem 1.5rem 1.5rem;
+  }
+  .dhicomparison .overlay {
+    padding: 1.5rem;
+  }
+  .dhicomparison .overlay p {
+    padding: 0 0 1rem;
+    font-size: 13px;
+  }
+  .dhicomparison .box p {
+    font-size: 13px;
+  }
+  .dhicomparison h4 {
+    font-size: 1.5rem;
+  }
+  .dhicomparison .box.box__dhi .overlay {
+      padding-bottom: 4rem;
+  }
+  .dhicomparison .box.box__others {
+      padding: 4rem 1.5rem 1.5rem;
+  }
+}

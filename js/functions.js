@@ -1,4 +1,5 @@
 ( function( $ ) {
+  
     var $body = $( 'body' );
     var $mainMenu = $( '#main-menu' );
     var $navBar = $( 'nav.navbar' );
@@ -42,7 +43,7 @@
         }
     }
 
-    $(document).ready(function(){
+    $(document).ready(function() {
 
         var skrollrInst;
         if(window.innerWidth > 767) {
@@ -180,22 +181,29 @@
                 infinite: false,
                 arrows: true,
                 speed: 300,
-                slidesToShow: 1,
-                draggable: false
+                slidesToShow: 1
             });
         }
 
         if($('.dhiSteps__slider').length > 0) {
-            $('.dhiSteps__slider').slick({
+            var dhiSteps__slider = $('.dhiSteps__slider').slick({
                 dots: false,
                 infinite: false,
-                arrows: true,
+                arrows: false,
                 speed: 300,
-                slidesToShow: 1,
-                draggable: false
+                slidesToShow: 1
+            });
+
+            $('.link__dhistpes').click(function(){
+              var _slide = $(this).parents('.slick-slide');
+              if( _slide.next().length > 0 ) {
+                  $('.dhiSteps__slider').slick('slickGoTo', _slide.next().index() );
+              } else if( _slide.prev().length > 0 ) {
+                  $('.dhiSteps__slider').slick('slickGoTo', _slide.prev().index() );
+              }
             });
         }
-        
+
         if($('.faq-item').length > 0) {
             $('.faq-item h5').click(function(){
                 var faqs = $(this).parents('.faq-list');

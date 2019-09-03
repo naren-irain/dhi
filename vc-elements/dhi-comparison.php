@@ -92,7 +92,7 @@ class DhiComparison {
         $html = '
         <section class="dhi__comparison">
 
-        <div class="container--mid">
+        <div class="container container--secondary">
 
             <div class="section-title">
                 <h3 class="text-center">'. $title .'</h3>
@@ -103,11 +103,11 @@ class DhiComparison {
             $html .= '<div class="dhicomparison__slider">';
             foreach($this->comparsion_list as $comparsion_list) {
                 $html .= '<div class="slick-slide"><div class="dhicomparison d-flex">';
-                $html .= "<div class='col'><div class='box box__dhi'><figure><img class='box--filled' src='".$comparsion_list['bg_image']."' /></figure><div class='overlay'><div><h4>". $comparsion_list['dhi_title'] ."</h4><div class='description'>". $comparsion_list['dhi_content'] ."</div></div></div></div>";
+                $html .= "<div class='col'><div class='box box__dhi'><figure class='box--filled'><img class='box--filled' src='".$comparsion_list['bg_image']."' /></figure><div class='overlay box--filled d-flex justify-content-center align-items-center'><div><h4>". $comparsion_list['dhi_title'] ."</h4><div class='description'>". $comparsion_list['dhi_content'] ."</div></div></div></div></div>";
                 $html .= "<div class='col'><div class='box box__others d-flex justify-content-center align-items-center'><div><h4>". $comparsion_list['comp_title'] ."</h4><h5>". $comparsion_list['comp_subtitle'] ."</h5><div class='description'>". $comparsion_list['comp_content'] ."</div></div></div></div>";
                 $html .= "</div></div>";
             }
-        
+
             $html .= '</div></div>
             </div>
         </section>';

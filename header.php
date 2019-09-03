@@ -27,16 +27,17 @@
 	<?php visualcomposerstarter_hook_before_header(); ?>
 
 	<header class="header--main" id="header">
-		
+
 			<div class="header__bar">
 				<div class="container d-flex">
-					<div class="col col__contact">
-						<a href="tel:+97147064000" class="link__tel">+97147064000</a>
-						<a href="mailto:hello@dhi.com" class="link__mail">hello@dhi.com</a>
-					</div>
+					<a href="<?php echo esc_url( '/' ); ?>" class="logo__main">
+							<img class="main-logo" src="<?php echo get_template_directory_uri(); ?>/images/logo-dhi-gurgaon.jpg" alt="Lutetia" />
+							<img class="alt-logo" src="<?php echo get_template_directory_uri(); ?>/images/logo-dhi-gurgaon.jpg" alt="Lutetia" />
+					</a>
 					<div class="col col__lang col__lutetia text-right">
 						<ul>
-							<li><a href="http://maisonlutetia.mkpactive.com/" target="_blank">Maison Lutétia</a></li>
+							<li class="no-divider"><a href="tel:+97147064000" class="link__tel">+97147064000</a></li>
+							<li><a href="http://maisonlutetia.mkpactive.com/" class="link__ext" target="_blank">Maison Lutétia</a></li>
 						</ul>
 					</div>
 				</div>
@@ -46,12 +47,11 @@
 				<div class="container">
 
 					<div class="d-flex header__flex align-items-center">
-						<div class="col__logo">
-							<a href="<?php echo esc_url( '/' ); ?>" class="logo__main">
-								<img class=" footer-logo" src="<?php echo get_template_directory_uri(); ?>/images/logo-dhi-gurgaon.jpg" alt="Lutetia" />
-							</a>
-						</div>
-			
+
+						<button class="navbar-toggler" type="button" data-toggle="collapse" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+
 			<?php if ( has_nav_menu( 'primary' ) ) : ?>
 				<div id="main-menu">
 					<div class="button-close"><span class="vct-icon-close"></span></div>
@@ -89,4 +89,3 @@
 <div class="site--main">
 
 <?php endif;
-
