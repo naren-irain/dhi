@@ -241,9 +241,9 @@ html div#wpadminbar:hover {
   background-size: contain;
   display: inline-block;
   left: 0;
-  top: 0;
-  width: .9em;
-  height: .9em;
+  top: 2px;
+  width: 0.8em;
+  height: 0.8em;
 }
 .header__bar .link__tel:before,
 .col__contact a.link__tel:before {
@@ -302,7 +302,7 @@ html div#wpadminbar:hover {
 
 /* Menu */
 .header__menu {
-  margin-top: 5.5rem;
+  margin-top: 8.5rem;
   margin-bottom: 1rem;
   transition: .4s;
 }
@@ -315,6 +315,11 @@ html div#wpadminbar:hover {
   right: -1rem;
   font-size: 14px;
 }
+.header--main a.logo__main.lutetia {
+  /* width: 140px; */
+  /* left: -50px; */
+  top: 110px;
+}
 .header--main a.logo__main {
   display: block;
   position: absolute;
@@ -325,6 +330,8 @@ html div#wpadminbar:hover {
   top: 15px;
   transition: .4s;
 }
+
+
 .logo__main img.alt-logo {
   position: absolute;
   max-height: 100%;
@@ -346,7 +353,7 @@ ul#menu-main-menu > li {
 }
 ul#menu-main-menu > li > a {
   display: block;
-  font-weight: 600;
+  /* font-weight: 600; */
   color: #fff;
   font-size: 14px;
   text-transform: uppercase;
@@ -389,21 +396,22 @@ ul#menu-main-menu ul.sub-menu {
   list-style: none;
   left: 1.2rem;
   top: 100%;
-  padding: 2.3rem 0 0;
+  padding: 1rem 0 0;
   min-width: 12rem;
   display: none;
 }
 ul#menu-main-menu ul.sub-menu a {
   display: block;
-  background: #fff;
-  border-bottom: 1px solid #ddd;
-  color: #000;
+  background: rgba(00, 00, 00, 0.7);
+  /* border-bottom: 1px solid #ddd; */
+  color: white;
   font-size: 0.9rem;
-  font-weight: bold;
+  /* font-weight: bold; */
   text-transform: uppercase;
   padding: 0.8rem 1.4rem;
   white-space: nowrap;
   transition: .4s;
+  opacity: 0.9;
 }
 ul#menu-main-menu ul.sub-menu a:hover {
   color: #D4BAAA;
@@ -415,8 +423,8 @@ ul#menu-main-menu ul.sub-menu:before {
   width: 1rem;
   height: 1rem;
   border: .75rem solid transparent;
-  border-bottom-color: #000;
-  top: 0.7rem;
+  border-bottom-color: rgba(00, 00, 00, 0.6);
+  top: -0.5rem;
   left: 1.4rem;
 }
 ul#menu-main-menu li:hover ul.sub-menu {
@@ -431,11 +439,23 @@ ul#menu-main-menu li:hover ul.sub-menu {
   transition: .4s;
 }
 .header--main.sticky a.logo__main {
-  width: 75px;
+  /* width: 75px; */
   top: 10px;
 }
+}
+.header--main.sticky a.logo__main.dhi {
+  width: 75px;
+  /* top: 10px; */
+}
+.header--main.sticky a.logo__main.dhi {
+  width: 75px !important;
+}
+.header--main.sticky a.logo__main.lutetia {
+  width: 75px;
+  top: 85px;
+}
 .header--main.sticky .header__menu {
-  margin-top: 5rem;
+  margin-top: 7rem;
 }
 .header--main.sticky .logo__main img.alt-logo {
   opacity: 1;
@@ -1720,7 +1740,7 @@ a.box--filled,
 .category-grid-box .overlay p {
   padding: 0;
   margin: 0 auto;
-  font-size: 1.22rem;
+  overflow: hidden;
   max-width: 17rem;
 }
 .category-grid-box .overlay {
@@ -1875,13 +1895,14 @@ a.box--filled,
 .col__lutetia a.link__ext {
   border: 1px solid;
   display: inline-block;
-  padding: 4px 7px 3px 8px;
+  padding: 4px 8px 4px 8px;
   position: relative;
   top: -0.3rem;
   opacity: 1;
 }
 .header--main a.logo__main {
-    width: 190px;
+  text-align: center;
+    /* width: 190px; */
     top: 21px;
 }
 .header--main.sticky a.logo__main {
@@ -2302,8 +2323,8 @@ section.vc_section.container {
     margin-left: 0;
   }
   .header--main a.logo__main {
-    width: 140px;
-    position: relative;
+    width: 80px;
+    /* position: relative; */
     margin: 8px auto 6px;
     top: 0;
     height: 60px;
@@ -2539,6 +2560,10 @@ section.vc_section.container {
 }
 
 @media only screen and (max-width: 767px) {
+  .header--main.sticky a.logo__main.lutetia {
+    width: 75px;
+    top: 65px;
+  }
   h3 {
     font-size: 1.5rem;
   }
@@ -2870,6 +2895,9 @@ section.vc_section.container {
   }
 }
 @media only screen and (max-width: 767px) {
+  .header--main a.logo__main.lutetia {
+    top: 60px;
+  }
   .accordion__banner img {
     height: 10rem;
     object-fit: cover;
@@ -3010,11 +3038,11 @@ section.dhi__comparison .slick-list {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 .dhiDifference .box {
-    width: 25rem;
-    margin-top: -10rem;
-    position: relative;
-    min-height: 14rem;
-    padding: 1.5rem;
+  width: 23rem;
+  margin-top: -5rem;
+  position: relative;
+  min-height: 14rem;
+  padding: 1.5rem;
 }
 .dhiDifference p {
     color: #b0b0b0;
@@ -3109,10 +3137,12 @@ section.dhi__comparison .slick-list {
 }
 
 .lutetia {
-  left: 200px !important;
-   top: 40px !important;
+  /* left: 200px !important; */
+   top: 125px;
 }
-
 .dhi {
-  left: -200px !important;
+  /* left: -200px !important; */
+}
+a[href*="mailto"] {
+    white-space: nowrap;
 }
