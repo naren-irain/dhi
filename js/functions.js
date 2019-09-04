@@ -1,5 +1,4 @@
 ( function( $ ) {
-  
     var $body = $( 'body' );
     var $mainMenu = $( '#main-menu' );
     var $navBar = $( 'nav.navbar' );
@@ -43,7 +42,7 @@
         }
     }
 
-    $(document).ready(function() {
+    $(document).ready(function(){
 
         var skrollrInst;
         if(window.innerWidth > 767) {
@@ -153,7 +152,7 @@
             $('.related__list > .row').slick({
                 dots: false,
                 infinite: false,
-                arrows: false,
+                arrows: true,
                 speed: 300,
                 slidesToShow: 1
             });

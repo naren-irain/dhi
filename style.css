@@ -2332,7 +2332,7 @@ section.vc_section.container {
     padding-top: 6px;
   }
   .header__bar {
-    height: auto;
+    height: 8rem;
     padding: 0;
   }
   .navbar-toggler {
@@ -2868,6 +2868,10 @@ section.vc_section.container {
     margin: 0.5rem;
     width: 10rem;
   }
+  .header--main.sticky a.logo__main.lutetia,
+  .header--main a.logo__main.lutetia {
+    top: 60px;
+  }  
 }
 @media only screen and (max-width: 767px) {
   .logo__main {
@@ -2895,9 +2899,6 @@ section.vc_section.container {
   }
 }
 @media only screen and (max-width: 767px) {
-  .header--main a.logo__main.lutetia {
-    top: 60px;
-  }
   .accordion__banner img {
     height: 10rem;
     object-fit: cover;
