@@ -88,7 +88,7 @@ class DhiSteps {
             foreach($this->steps_list as $steps_list) {
                 $html .= '<div class="slick-slide"><div class="dhiSteps">';
                 $html .= '<hgroup class="section-title"><h3>'. $steps_list['step_title'] .'</h3><h4>'. $steps_list['step_link_title'] .'</h4></hgroup>';
-                $html .= "<div class='d-flex'><div class='col'><div class='content'>". $steps_list['content'] ."</div><a class='link__dhistpes'>". $steps_list['step_link_title'] ."</a></div>";
+                $html .= "<div class='d-flex'><div class='col'><div class='content'>". $steps_list['content'] ."</div></div>";
                 $html .= "<div class='col'><figure><img class='box--filled' src='".$steps_list['image']."' /></figure></div></div>";
                 $html .= "</div></div>";
             }
