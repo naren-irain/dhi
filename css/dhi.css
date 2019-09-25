@@ -52,6 +52,85 @@ a.link__dhistpes {
   transform: scale(0.75);
 }
 
+.menSteps, .womenStages {
+  animation: fadeIn .4s;
+}
+.clearfix:before,
+.clearfix:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.menNextStep {
+  cursor: pointer;
+  float: left;
+  user-select: none;
+}
+.menNextStep i,
+.menPrevStep i {    
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  left: 0;
+  top: 0;
+  width: 1.3em;
+  height: 1.3em;
+  background: #000;
+  border-radius: 50%;
+  margin: 0 4px;
+  text-align: center;
+  color: transparent !important;
+  font-size: 13px;
+  vertical-align: top;
+  transition: .4s;
+}
+.menNextStep i:before,
+.menPrevStep i:before {
+  border: .3em solid transparent;
+  border-left-color: #D4BAAA;
+  content: '';
+  display: inline-block;
+  position: absolute;
+  width: 0.3em;
+  height: 0.3em;
+  top: 50%;
+  left: 50%;
+  margin: -0.3em 0 0 -0.1em;
+}
+.menPrevStep {
+  cursor: pointer;
+  user-select: none;
+  float: right;
+}
+.menPrevStep i {
+  transform: rotate(180deg);
+}
+.menSteps .clearfix br {
+  display: none;
+}
+
+
+.women__stages img {
+  transition: .8s;
+  transform: rotate(-45deg);
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+}
+.women__stages .stages-1 {
+  transform: rotate(-45deg);
+}
+.women__stages .stages-2 {
+  transform: rotate(-135deg);
+}
+.women__stages .stages-3 {
+  transform: rotate(-225deg);
+}
+.women__stages .stages-4 {
+  transform: rotate(-315deg);
+}
+
+
 @media only screen and (max-width: 991px) {
   .dhicomparison {
     padding: 0;

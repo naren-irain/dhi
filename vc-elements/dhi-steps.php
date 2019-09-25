@@ -80,7 +80,7 @@ class DhiSteps {
         $html = '
         <section class="dhi__steps">
 
-        <div class="container container--secondary">
+        <div class="container--mid">
 
             <div class="dhiSteps__list">';
 
@@ -92,7 +92,7 @@ class DhiSteps {
                 $html .= "<div class='col'><figure><img class='box--filled' src='".$steps_list['image']."' /></figure></div></div>";
                 $html .= "</div></div>";
             }
-
+        
             $html .= '</div></div>
             </div>
         </section>';

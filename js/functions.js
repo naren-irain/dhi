@@ -74,6 +74,22 @@
             $(this).siblings().show();
             $(this).hide();
         });
+        
+        $('.menNextStep').click(function(){
+            $('.menSteps').addClass('hide');
+            $(this).parents('.menSteps').next().removeClass('hide');
+        });
+        
+        $('.menPrevStep').click(function(){
+            $('.menSteps').addClass('hide');
+            $(this).parents('.menSteps').prev().removeClass('hide');
+        });
+        
+        $('.womenStages .link__dhistpes').click(function(){
+            $('.womenStages').addClass('hide');
+            $( '.womenStages.stage-' + $(this).data('step') ).removeClass('hide');
+            $( '.women__stages img' ).attr( 'class', 'stages-' + $(this).data('step') );
+        });
 
         $('.seven-image-grid .grid-nav').click(function(){
             var gridElem = $(this).parents('.seven-image-grid');

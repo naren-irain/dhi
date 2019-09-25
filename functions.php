@@ -265,6 +265,8 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 		require get_template_directory() . '/vc-elements/header-with-stats.php';
 		require get_template_directory() . '/vc-elements/welcome-section.php';
 		require get_template_directory() . '/vc-elements/welcome-section-alt.php';
+		require get_template_directory() . '/vc-elements/welcome-section-alt-testimonials.php';
+		
 		require get_template_directory() . '/vc-elements/seven-image-grid.php';
 		require get_template_directory() . '/vc-elements/two-images-grid.php';
 		require get_template_directory() . '/vc-elements/image-border-content.php';
@@ -282,6 +284,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 		//require get_template_directory() . '/vc-elements/our-team.php';
 		//require get_template_directory() . '/vc-elements/our-clinics.php';
 		require get_template_directory() . '/vc-elements/treatments-faq.php';
+		require get_template_directory() . '/vc-elements/results-faq.php';
 		require get_template_directory() . '/vc-elements/treatment-results.php';
 		require get_template_directory() . '/vc-elements/results-tab.php';
 		//require get_template_directory() . '/vc-elements/treatments-indications.php';
@@ -394,6 +397,10 @@ function visualcomposerstarter_style() {
 
 	/* DHI stylesheet */
 	wp_register_style( 'dhi-style', get_template_directory_uri() . '/css/dhi.css', array(), '1.6.0' );
+
+
+	wp_register_style( 'slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', array(), '1.8.1' );
+	wp_enqueue_style( 'slick' );
 	
 
 	/* Font options */
@@ -453,6 +460,13 @@ function visualcomposerstarter_script() {
 
 	/* Modernizr JS */
 	wp_register_script( 'modernizr-js', get_template_directory_uri() . '/js/lib/modernizr-custom.js', array( 'jquery' ), '1', true );
+
+	
+	wp_register_script( 'slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array( 'jquery' ), '1', true );
+	wp_enqueue_script( 'slick' );
+
+
+
 
 	/* Main theme JS functions */
 	wp_register_script( 'visualcomposerstarter-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), VISUALCOMPOSERSTARTER_VERSION, true );
