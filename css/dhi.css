@@ -131,6 +131,260 @@ a.link__dhistpes {
 }
 
 
+.footer--main {
+  position: relative;
+}
+.single-treatment_result .header--main {
+  background: rgba(0,0,0,0.75);
+}
+html body.single-treatment_result {
+  padding-top: 175px;
+}
+
+.result--head {
+  font-family: 'ACaslonPro';
+  margin-top: 1rem;
+}
+.result--head h3 {
+  font-size: 2.2rem;
+}
+.result--head .col {
+  padding-left: 0;
+}
+.result--head .col:first-child {
+  min-width: 9rem;
+  flex-grow: 0;
+}
+.result--head p {
+  width: 18rem;
+  margin-bottom: 0;
+  color: #333;
+}
+.result--head blockquote {/* Style for "I am so pl" */
+  color: #5b5b5b;
+  padding: 0 0 0 1rem;
+  max-width: 21rem;
+  border-left: 2px solid;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+.result--head blockquote:before {content: '"';position: absolute;left: 0.5rem;}
+
+
+
+/* Seven Grid Section */
+.results-image-grid {
+  position: relative;
+  padding: 2rem 1vw 4rem;
+}
+.results-image-grid .main-grid {
+  width: 70vw;
+  padding: 0;
+  position: relative;
+}
+.results-image-grid .main-grid .before-after-wrapper {
+  margin: 0;
+  width: 100%;
+  height: 33vw;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.41);
+  background: #212121;
+  position: relative;
+}
+.results-image-grid .main-grid-image {
+  opacity: 0;
+  transition: .4s;
+}
+.results-image-grid .main-grid-image.active {
+  opacity: 1;
+}
+.results-image-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 25% 25%;
+}
+.results-image-grid .grid-thumbnails {
+  width: 28vw;
+  padding: 0 0 0 1vw;
+}
+.results-image-grid .grid-thumb {
+  background: #212121;
+  cursor: pointer;
+  width: 11vw;
+  height: 10.33vw;
+  margin: 0 0 1vw;
+  overflow: hidden;
+}
+.result-before-after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 0;
+  transition: .4s;
+}
+.result-before-after.active {
+  position: relative;
+  opacity: 1;
+  z-index: 2;
+}
+.before-after-thumbnail {
+  position: relative;
+  display: flex;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+.before-after-thumbnail img {
+  width: 50%;
+  height: 7.5vw;
+  object-fit: cover;
+}
+.result-thumbnail .title {
+  font-family: 'ACaslonPro';
+}
+.result-before-after .title {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 5;
+  font-family: 'ACaslonPro';
+  color: rgba(255,255,255,0.8);
+  padding: 0.5rem 1rem 0.4rem;
+}
+.result-thumbnail.active {
+  display: none;
+}
+.results-image-grid .grid-thumbnails p {
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
+.btn--lutetia.btn--small {
+  font-size: 1rem;
+  border-radius: 2px;
+}
+
+.results-faq .wpb_content_element {
+  margin-top: 2.5rem;
+}
+.results-faq .wpb_content_element h3 {
+  font-size: 2.5rem;
+  color: #000;
+  margin-bottom: 1rem;
+}
+.container--post .navigation {
+  margin-bottom: 4rem;
+}
+.container--post .navigation a strong {
+  display: none;
+}
+.container--post .navigation a {
+  color: #000;
+}
+.result-link-previous:before {
+  content: '<';
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background: #000;
+  border-radius: 50%;
+  position: relative;
+  right: 0;
+  color: #fff;
+  font-style: normal;
+  text-align: center;
+  line-height: 1rem;
+  font-family: monospace;
+  font-size: 80%;
+  margin-right: .4rem;
+}
+.result-link-next:after {
+  content: '>';
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background: #000;
+  border-radius: 50%;
+  position: relative;
+  right: 0;
+  color: #fff;
+  font-style: normal;
+  text-align: center;
+  line-height: 1rem;
+  font-family: monospace;
+  font-size: 80%;
+  margin-left: .4rem;
+}
+.box__treatment_result figure {
+  display: flex;
+  background: #000;
+  margin-bottom: 0.75rem;
+}
+.box__treatment_result:hover img {
+  opacity: 0.75;
+}
+.box__treatment_result h4 {
+  transition: .4s;
+}
+.box__treatment_result:hover h4 {
+  color: #94542c;
+}
+.box__treatment_result figure img {
+  width: 50%;
+  max-height: 100%;
+  object-fit: cover;
+  transition: .35s;
+}
+.box__treatment_result {
+  margin: 1rem 0;
+}
+.row.list__results {
+  margin-top: 1rem;
+}
+.result__tab {
+  display: none;
+}
+.result__tab.active {
+  display: block;
+}
+.relative {
+  position: relative;
+}
+.baldness__nav {
+  margin-bottom: 2rem;
+}
+.baldness__nav a {
+  cursor: pointer;
+  color: #000;
+  font-family: 'ACaslonPro';
+  font-size: 1.2rem;
+  display: inline-block;
+  margin-right: 5%;
+}
+.baldness__nav a.active {
+  text-decoration: underline;
+}
+.result__tab .content {
+  max-width: 48rem;
+  color: #777;
+}
+.tab__link {
+  font-family: 'ACaslonPro';
+}
+.list__results > div {
+  width: 50%;
+  padding: 0 15px;
+  animation: bubbleIn 0.4s;
+}
+.list__results > div:nth-child(3n-2) {
+  animation: bubbleIn 0.5s;
+}
+.list__results > div:nth-child(3n-1) {
+  animation: bubbleIn 0.6s;
+}
+
 @media only screen and (max-width: 991px) {
   .dhicomparison {
     padding: 0;
@@ -142,6 +396,14 @@ a.link__dhistpes {
   .dhiDifference .box {
     width: 85%;
     min-height: 17rem;
+  }
+
+  .baldness__nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .baldness__link {
+    margin: 0.5rem;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -160,6 +422,32 @@ a.link__dhistpes {
     right: 50%;
     top: 100%;
     font-size: 1.1rem;
+  }
+
+  .results-image-grid .main-grid, .results-image-grid .grid-thumbnails {
+    width: 100vw;
+  }
+  .results-image-grid .d-flex {
+      flex-wrap: wrap;
+  }
+  .results-image-grid .grid-thumbnails {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 1.5rem 0 0;
+      justify-content: space-between;
+  }
+  .results-image-grid .grid-thumbnails p {
+      display: table;
+      width: 100%;
+  }
+  .result-thumbnail {
+      width: 31%;
+  }
+  .results-image-grid {
+    padding-bottom: 0;
+  }
+  html body.single-treatment_result {
+    padding-top: 105px;
   }
 }
 @media only screen and (max-width: 575px) {
@@ -203,5 +491,9 @@ a.link__dhistpes {
   }
   .dhicomparison .box.box__others {
       padding: 4rem 1.5rem 1.5rem;
+  }
+
+  .list__results > div {
+    width: 100%;
   }
 }

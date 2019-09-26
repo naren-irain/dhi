@@ -131,6 +131,19 @@
             $('.tab__' + _type).addClass('active');
         });
 
+        $('.baldness__link').click(function(){
+            var _type = $(this).data('type');
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
+            
+            if(_type == 'all') {
+                $('.tab__men .type-treatment_result').removeClass('hide');
+            } else {
+                $('.tab__men .type-treatment_result').addClass('hide');
+                $('.tab__men .category-' + _type).removeClass('hide');
+            }
+        });
+
 
         if($('.clinic__list').length > 0) {
             $('.clinic__gallery figure:first-child').addClass('active');

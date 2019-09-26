@@ -276,6 +276,7 @@ if ( ! function_exists( 'visualcomposerstarter_setup' ) ) :
 		//require get_template_directory() . '/vc-elements/contact-section-blog.php';
 		//require get_template_directory() . '/vc-elements/contact-for-treatment.php';
 		require get_template_directory() . '/vc-elements/testimonials-list.php';
+		require get_template_directory() . '/vc-elements/results-list.php';
 		require get_template_directory() . '/vc-elements/testimonial-in-treatments.php';
 		require get_template_directory() . '/vc-elements/what-to-expect.php';
 		require get_template_directory() . '/vc-elements/dhi-comparison.php';

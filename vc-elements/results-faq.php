@@ -199,10 +199,17 @@ class resultsFaq {
 
         // Fill $html var with data
         $html = '
-        <div class="treatments-faq">
-            <div class="faq-flex d-flex align-items-center">
-                <div class="faq-block"><div>
-                    <h4><mark>' . $title . '</mark></h4>
+        <div class="container container--post results-faq">
+            <div class="faq-flex row">
+
+                <div class="col-12 col-sm-4">
+                    <div class="wpc-directory-text wpb_content_element">
+                        <h3>' . $title . '</h3>
+                        <a href="'. $treatmentlink .'" class="btn btn--lutetia btn--small">VIEW TREATMENT</a>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-8">
                     <div class="faq-list">
                         <div class="faq-item active">
                             <h5><span>' . $faq1question . '</span><i><small>+</small></i></h5>
@@ -219,23 +226,17 @@ class resultsFaq {
                         $html .= ' <div class="faq-item">
                             <h5><span>' . $faq3question . '</span><i><small>+</small></i></h5>
                             <div class="faq-content" style="display: none;">' . $faq3answer . '</div>
-                        </div>
-                    </div>';
+                        </div>';
                     }
                     if($faq4question != '') {
                         $html .= ' <div class="faq-item">
                             <h5><span>' . $faq4question . '</span><i><small>+</small></i></h5>
                             <div class="faq-content" style="display: none;">' . $faq4answer . '</div>
-                        </div>
-                    </div>';
+                        </div>';
                     }
 
         $html .= '
-                </div>
-                </div>
-                <div class="image-box">
-                    <figure><img src="'. $img_url[0] .'" /></figure>
-                </div>
+            </div></div>
             </div>
         </div>';
 
